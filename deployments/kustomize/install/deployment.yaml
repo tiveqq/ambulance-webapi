@@ -58,6 +58,10 @@ spec:
       - name: karunnyi-ambulance-wl-webapi-container
         image: karunnyi/ambulance-wl-webapi:latest
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: otel-params
+            optional: true
         ports:
         - name: webapi-port
           containerPort: 8080
